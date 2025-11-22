@@ -11,6 +11,11 @@ export interface ExtensionMessage {
   error?: string;
 }
 
+export interface ClarifyingQuestionResponse {
+  questions: string[];
+  reasoning: string;
+}
+
 export interface RefinementResponse {
   refinedPrompt: string;
   critique: string;
