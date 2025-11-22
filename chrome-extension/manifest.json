@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "Prompt Smith - AI Prompt Engineer",
+  "version": "1.0.0",
+  "description": "Refine your prompts for ChatGPT, Claude, and Gemini using elite prompt engineering rules.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://bard.google.com/*",
+    "https://poe.com/*",
+    "https://www.perplexity.ai/*",
+    "https://perplexity.ai/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_popup": "index.html",
+    "default_title": "Refine Prompt"
+  },
+  "background": {
+    "service_worker": "scripts/background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://bard.google.com/*",
+        "https://poe.com/*",
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*"
+      ],
+      "js": ["scripts/content.ts"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "assets/*", "icons/*"],
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://bard.google.com/*",
+        "https://poe.com/*",
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*"
+      ]
+    }
+  ]
+}
